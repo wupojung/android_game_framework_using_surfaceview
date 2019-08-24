@@ -21,4 +21,21 @@ public class InGameActivity extends Activity {
         gameSurfaceView = new GameSurfaceView(this);
         setContentView(gameSurfaceView);
     }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(gameSurfaceView!=null){ //傳遞底層訊號
+            gameSurfaceView.Pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(gameSurfaceView!=null){  //傳遞底層訊號
+            gameSurfaceView.Resume();
+        }
+    }
+
 }
